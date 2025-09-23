@@ -1,4 +1,26 @@
 import React from "react";
+import {
+  SiReact,
+  SiNodedotjs,
+  SiPostgresql,
+  SiAwsamplify,
+  SiDocker,
+  SiKubernetes,
+  SiGraphql,
+  SiApachekafka,
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiOpenjdk,
+  SiHtml5,
+  SiCss3,
+  SiMongodb,
+  SiRedis,
+  SiTailwindcss,
+  SiPytorch,
+  SiScikitlearn,
+} from "react-icons/si";
+
 import { Github, Linkedin, Mail, FileText } from "lucide-react";
 
 const INFO = {
@@ -10,6 +32,28 @@ const INFO = {
     resume: "/Padmapriya_V_Resume.pdf", // Make sure this PDF exists in /public
   },
 };
+
+const SKILLS = [
+  { name: "JavaScript", icon: SiJavascript },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "Java", icon: SiOpenjdk },
+  { name: "Python", icon: SiPython },
+  { name: "HTML5", icon: SiHtml5 },
+  { name: "CSS3", icon: SiCss3 },
+  { name: "React", icon: SiReact },
+  { name: "TailwindCSS", icon: SiTailwindcss },
+  { name: "Node.js", icon: SiNodedotjs },
+  { name: "GraphQL", icon: SiGraphql },
+  { name: "PostgreSQL", icon: SiPostgresql },
+  { name: "MongoDB", icon: SiMongodb },
+  { name: "Redis", icon: SiRedis },
+  { name: "AWS", icon: SiAwsamplify },
+  { name: "Docker", icon: SiDocker },
+  { name: "Kubernetes", icon: SiKubernetes },
+  { name: "Kafka", icon: SiApachekafka },
+  { name: "PyTorch", icon: SiPytorch },
+  { name: "Scikit-learn", icon: SiScikitlearn },
+];
 
 const Pill = ({ children }) => (
   <span className="inline-block rounded-full border border-black/10 bg-white/60 backdrop-blur px-3 py-1 text-sm">
@@ -140,18 +184,95 @@ export default function App() {
       </section>
 
       {/* Remaining Sections (placeholders for now) */}
-      <section
-        id="about"
-        className="h-[80vh] bg-white flex items-center justify-center"
-      >
-        <h1 className="text-3xl">About Section</h1>
+      <section id="about" className="bg-white py-20 px-4 md:px-8">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
+          {/* Main About Content */}
+          <div className="md:col-span-2">
+            <h2 className="text-3xl md:text-4xl font-semibold">About</h2>
+            <p className="mt-4 leading-7 text-slate-700">
+              I’m a Computer Science graduate student at CSU Fullerton with
+              internship experience as a Software Technical Consultant. I enjoy
+              building full‑stack apps with robust backends, intuitive UIs, and
+              production-ready DevOps workflows. I'm passionate about scalable
+              systems, cloud-native development, and developer automation.
+            </p>
+            <ul className="mt-4 list-disc pl-6 space-y-1 text-slate-700">
+              <li>
+                <strong>Education:</strong> M.S. Computer Science (CSU
+                Fullerton), B.Tech IT (Anna University)
+              </li>
+              <li>
+                <strong>Interests:</strong> Full‑stack development,
+                DevOps/Cloud, ML for real‑time systems
+              </li>
+              <li>
+                <strong>Location:</strong> Los Angeles, CA, United States
+              </li>
+            </ul>
+          </div>
+
+          {/* Quick Links Sidebar */}
+          <aside className="space-y-3">
+            <h3 className="text-xl font-semibold">Quick Links</h3>
+            <div className="space-y-2">
+              <a
+                href="https://github.com/padmapriyavj"
+                target="_blank"
+                rel="noreferrer"
+                className="block rounded-xl border border-black/10 p-3 hover:bg-amber-50 transition"
+              >
+                <div className="font-medium">GitHub</div>
+                <div className="text-sm opacity-70">
+                  Code, projects & activity
+                </div>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/padmapriya-v-48ab1220a/"
+                target="_blank"
+                rel="noreferrer"
+                className="block rounded-xl border border-black/10 p-3 hover:bg-amber-50 transition"
+              >
+                <div className="font-medium">LinkedIn</div>
+                <div className="text-sm opacity-70">Work & profile updates</div>
+              </a>
+              <a
+                href="https://medium.com/@padmapriyavj2604"
+                target="_blank"
+                rel="noreferrer"
+                className="block rounded-xl border border-black/10 p-3 hover:bg-amber-50 transition"
+              >
+                <div className="font-medium">Medium</div>
+                <div className="text-sm opacity-70">Blogs & writing</div>
+              </a>
+            </div>
+          </aside>
+        </div>
       </section>
-      <section
-        id="skills"
-        className="h-[80vh] bg-rose-50 flex items-center justify-center"
-      >
-        <h1 className="text-3xl">Skills Section</h1>
+
+      <section id="skills" className="bg-rose-50 py-20 px-4 md:px-8">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-8">Skills</h2>
+
+          <div className="relative overflow-hidden">
+            <div className="flex gap-6 animate-scroll w-[200%]">
+              {/* Duplicate skills to create looping illusion */}
+              {[...SKILLS, ...SKILLS].map(({ name, icon: Icon }, index) => (
+                <div
+                  key={index}
+                  className="group flex flex-col items-center justify-center px-4 py-3 rounded-xl border border-black/10 bg-white shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 active:scale-95 min-w-[120px]"
+                >
+                  <Icon
+                    size={28}
+                    className="text-amber-600 group-hover:scale-110 transition-transform"
+                  />
+                  <span className="mt-2 text-sm text-center">{name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
+
       <section
         id="projects"
         className="h-[80vh] bg-white flex items-center justify-center"
