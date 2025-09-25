@@ -1363,8 +1363,8 @@ export default function App() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Whether you want to collaborate, have a question, or just want to
-            say hi — my inbox is always open.
+            Whether you want to collaborate, have a question or just want to
+            say hi - my inbox is always open.
           </motion.p>
 
           <motion.div
