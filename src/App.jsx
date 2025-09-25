@@ -1,4 +1,12 @@
 import React, { useState, useEffect } from "react";
+import resumePDF from "./assets/Padmapriya_V_Resume_Fullstack_Developer.pdf";
+import pulseboardImg from "./assets/pulseboard-img.png";
+import devopsImg from "./assets/devops-img.png";
+import earthquakeImg from "./assets/earthquake-img.png";
+import mcpImg from "./assets/mcp-img.webp";
+import auction from "./assets/auction-img.png";
+import rssImg from "./assets/rss-digest-bot-img.webp";
+import aboutImg from "./assets/about-img.jpeg";
 import {
   SiReact,
   SiNodedotjs,
@@ -53,7 +61,7 @@ const INFO = {
   links: {
     github: "https://github.com/padmapriyavj",
     linkedin: "https://www.linkedin.com/in/padmapriya-v-48ab1220a/",
-    resume: "/Padmapriya_V_Resume.pdf", // Make sure this PDF exists in /public
+    resume: resumePDF, // Make sure this PDF exists in /public
   },
 };
 
@@ -102,7 +110,7 @@ const PROJECTS = [
       "HTML",
     ],
     code: "https://github.com/Kiran9223/Auction-DApp",
-    img: "https://images.unsplash.com/photo-1622810814354-c807e58f3d88?q=80&w=1200&auto=format&fit=crop",
+    img: auction,
   },
   {
     title: "Pulseboard - IoT Analytics Dashboard",
@@ -124,7 +132,7 @@ const PROJECTS = [
       "WebSocket",
     ],
     code: "https://github.com/padmapriyavj/Pulseboard",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+    img: pulseboardImg,
   },
   {
     title: "DevOps Orchestra",
@@ -138,11 +146,9 @@ const PROJECTS = [
       "Docker",
       "Kubernetes",
       "Terraform",
-      "Jenkins",
-      "Ansible",
     ],
     code: "https://github.com/Devops-orchestra/DevOps-Orchestra",
-    img: "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?q=80&w=1200&auto=format&fit=crop",
+    img: devopsImg,
   },
   {
     title: "Geoshake Prediction",
@@ -160,7 +166,7 @@ const PROJECTS = [
       "Geospatial Analysis",
     ],
     code: "https://github.com/padmapriyavj/Geoshake_Prediction",
-    img: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=1200&auto=format&fit=crop",
+    img: earthquakeImg,
   },
   {
     title: "RSS Digest Bot",
@@ -177,7 +183,7 @@ const PROJECTS = [
       "Data Processing",
     ],
     code: "https://github.com/padmapriyavj/RSS-DIGEST-BOT",
-    img: "https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200&auto=format&fit=crop",
+    img: rssImg,
   },
 ];
 
@@ -320,6 +326,7 @@ export default function App() {
               ["About", "about"],
               ["Skills", "skills"],
               ["Projects", "projects"],
+              ["Experience", "experience"],
               ["Blog", "blog"],
               ["Contact", "contact"],
             ].map(([label, href]) => (
@@ -669,7 +676,7 @@ export default function App() {
             >
               {INFO.name}
             </motion.h1>
-            <motion.p
+            <motion.div
               className={`mt-3 text-lg md:text-xl transition-colors duration-300 ${
                 isDarkMode ? "text-slate-300" : "text-slate-600"
               }`}
@@ -677,9 +684,9 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Full‑Stack Web Developer
-            </motion.p>
-            <motion.p
+              Full‑Stack Developer | AI Practitioner | DevOps Engineer{" "}
+            </motion.div>
+            <motion.div
               className={`mt-4 mb-8 text-base md:text-lg max-w-prose transition-colors duration-300 ${
                 isDarkMode ? "text-slate-300" : "text-slate-700"
               }`}
@@ -687,9 +694,12 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              Building performant web apps with thoughtful UX, scalable backends
-              and clean CI/CD.
-            </motion.p>
+              I design intelligent, end‑to‑end applications powered by modern
+              web stacks, real-time systems, and AI/ML workflows. With hands‑on
+              experience in scalable backend systems, cloud deployments, and
+              DevOps automation, I build solutions that are fast, secure, and
+              production‑ready.
+            </motion.div>
           </motion.div>
 
           {/* Right Image */}
@@ -773,7 +783,7 @@ export default function App() {
             >
               About
             </motion.h2>
-            <motion.p
+            <motion.div
               className={`mt-4 leading-7 transition-colors duration-300 ${
                 isDarkMode ? "text-slate-300" : "text-slate-700"
               }`}
@@ -782,12 +792,32 @@ export default function App() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              I'm a Computer Science graduate student at CSU Fullerton with
-              internship experience as a Software Technical Consultant. I enjoy
-              building full‑stack apps with robust backends, intuitive UIs, and
-              production-ready DevOps workflows. I'm passionate about scalable
-              systems, cloud-native development, and developer automation.
+              I'm a Computer Science graduate student at CSU Fullerton with a
+              B.Tech in IT from Anna University. I bring hands-on experience in
+              full‑stack development, DevOps, and machine learning. At
+              DigitranIT, I helped build “HealthyChamps” - a personalized
+              meal-planning app - working on Angular frontends, Node.js APIs,
+              and PostgreSQL optimization. I also implemented JWT auth and
+              Docker-based CI/CD. I'm passionate about scalable systems,
+              cloud-native apps, and intelligent automation. My recent work
+              spans GNNs for geospatial data and multi-agent DevOps platforms.
+            </motion.div>
+
+            {/* One-liner separate block */}
+            <motion.p
+              className={`mt-4 italic transition-colors duration-300 ${
+                isDarkMode ? "text-slate-400" : "text-slate-600"
+              }`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              When I'm not coding, you'll find me refining backend architecture,
+              designing intuitive UIs, or exploring the latest in AI and
+              developer tooling.
             </motion.p>
+
             <motion.ul
               className={`mt-4 list-disc pl-6 space-y-1 transition-colors duration-300 ${
                 isDarkMode ? "text-slate-300" : "text-slate-700"
@@ -816,8 +846,8 @@ export default function App() {
                     : "hover:text-emerald-600"
                 }`}
               >
-                <strong>Interests:</strong> Full‑stack development,
-                DevOps/Cloud, ML for real‑time systems
+                <strong>Interests:</strong> Full‑stack development, Devops,
+                Cloud, AI/ML
               </motion.li>
               <motion.li
                 variants={fadeInUp}
@@ -843,9 +873,9 @@ export default function App() {
             <div className="relative">
               {/* Main Image */}
               <motion.img
-                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop"
-                alt="Developer workspace with code"
-                className="w-full rounded-2xl shadow-2xl"
+                src={aboutImg}
+                alt="Portrait"
+                className="w-full max-w-sm mx-auto rounded-2xl shadow-2xl"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               />
@@ -1034,6 +1064,81 @@ export default function App() {
                   </span>
                 </motion.div>
               ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="experience"
+        className={`py-20 px-4 md:px-8 transition-colors duration-300 ${
+          isDarkMode ? "bg-slate-900" : "bg-gray-50"
+        }`}
+      >
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            className={`text-3xl md:text-4xl font-semibold mb-8 bg-clip-text text-transparent ${
+              isDarkMode
+                ? "bg-gradient-to-r from-violet-400 to-purple-400"
+                : "bg-gradient-to-r from-emerald-600 to-teal-600"
+            }`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Experience
+          </motion.h2>
+
+          <div className="space-y-8">
+            <motion.div
+              className={`group rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform ${
+                isDarkMode ? "bg-slate-800" : "bg-white"
+              }`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h3 className="text-xl font-semibold">
+                Software Technical Consultant (Internship)
+              </h3>
+              <p className="text-sm text-slate-500">
+                DigitranIT Software Solutions Pvt Ltd — Chennai, India | Mar
+                2022 – Jun 2023
+              </p>
+              <ul
+                className={`mt-4 list-disc pl-5 space-y-2 ${
+                  isDarkMode ? "text-gray-200" : "text-slate-800"
+                }`}
+              >
+                <li>
+                  Designed and launched a personalized nutrition-based meal
+                  planner app used by 1,000+ users across 6 countries.
+                </li>
+                <li>
+                  Built modular backend using <strong>Node.js</strong> &{" "}
+                  <strong>Express</strong>, optimized{" "}
+                  <strong>PostgreSQL</strong> schemas and queries.
+                </li>
+                <li>
+                  Enhanced frontend UX using <strong>Angular</strong> and
+                  real-time updates, boosting engagement by 15%.
+                </li>
+                <li>
+                  Secured APIs with <strong>JWT</strong> and{" "}
+                  <strong>OAuth2</strong>; implemented RBAC for authorization.
+                </li>
+                <li>
+                  Automated <strong>CI/CD pipelines</strong> with{" "}
+                  <strong>Docker</strong> and <strong>GitHub Actions</strong>,
+                  speeding up deployment by 50%.
+                </li>
+                <li>
+                  Led a 5-member Agile team, conducted sprints and code reviews
+                  to ensure timely feature delivery.
+                </li>
+              </ul>
             </motion.div>
           </div>
         </div>
@@ -1267,14 +1372,15 @@ export default function App() {
                 >
                   {blog.title}
                 </motion.div>
-                <div
+                <p
                   className={`text-sm mb-3 transition-colors ${
                     isDarkMode ? "text-slate-400" : "text-slate-600"
                   }`}
                 >
                   {blog.date}
-                </div>
-                <motion.p
+                </p>
+
+                <motion.div
                   className={`text-sm flex items-center gap-1 transition-colors ${
                     isDarkMode
                       ? "text-slate-300 group-hover:text-violet-400"
@@ -1289,7 +1395,7 @@ export default function App() {
                   >
                     <ArrowUpRight size={14} />
                   </motion.div>
-                </motion.p>
+                </motion.div>
               </motion.a>
             ))}
           </motion.div>
@@ -1354,7 +1460,7 @@ export default function App() {
           >
             Get in Touch
           </motion.h2>
-          <motion.p
+          <motion.div
             className={`text-lg mb-8 leading-relaxed transition-colors ${
               isDarkMode ? "text-slate-300" : "text-slate-700"
             }`}
@@ -1363,9 +1469,9 @@ export default function App() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Whether you want to collaborate, have a question or just want to
-            say hi - my inbox is always open.
-          </motion.p>
+            Whether you want to collaborate, have a question or just want to say
+            hi - my inbox is always open.
+          </motion.div>
 
           <motion.div
             className="flex justify-center gap-4 flex-wrap"
