@@ -22,6 +22,8 @@ import {
 } from "react-icons/si";
 
 import { Github, Linkedin, Mail, FileText } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 const INFO = {
   name: "Padmapriya Vijayaragava Rengaraj",
@@ -53,6 +55,55 @@ const SKILLS = [
   { name: "Kafka", icon: SiApachekafka },
   { name: "PyTorch", icon: SiPytorch },
   { name: "Scikit-learn", icon: SiScikitlearn },
+];
+
+const PROJECTS = [
+  {
+    title: "DevOps Orchestra",
+    blurb:
+      "AI-driven DevOps automation that orchestrates validation, IaC, testing, and deployment via a single YAML.",
+    stack: ["Python", "Kafka", "GitHub Actions"],
+    code: "https://github.com/Devops-orchestra/DevOps-Orchestra",
+    img: "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    title: "Pulseboard",
+    blurb:
+      "Full-stack productivity dashboard featuring calendar, notes, weather, and charts using React, Flask, and PostgreSQL.",
+    stack: ["React", "Flask", "PostgreSQL"],
+    code: "https://github.com/padmapriyavj/Pulseboard",
+    img: "https://images.unsplash.com/photo-1612832021500-2031c5e23946?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    title: "RSS Digest Bot",
+    blurb:
+      "A Python bot that aggregates RSS feeds and sends weekly digest emails, customizable for different topics.",
+    stack: ["Python", "BeautifulSoup", "SMTP"],
+    code: "https://github.com/padmapriyavj/RSS-DIGEST-BOT",
+    img: "https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    title: "Auction DApp",
+    blurb:
+      "A decentralized auction application built with Solidity and React, enabling trustless bidding on the blockchain.",
+    stack: ["Solidity", "React", "Hardhat"],
+    code: "https://github.com/Kiran9223/Auction-DApp",
+    img: "https://images.unsplash.com/photo-1622810814354-c807e58f3d88?q=80&w=1200&auto=format&fit=crop",
+  },
+];
+
+
+const BLOGS = [
+  {
+    title: "Bringing MCP to Life: A Practical RSS Digest Bot in Python",
+    date: "Jun 22, 2025",
+    url: "https://medium.com/@padmapriyavj2604/rss-digest-bot",
+  },
+  {
+    title: "Why Model Context Protocol Is the REST for LLMs",
+    date: "Jun 4, 2025",
+    url: "https://medium.com/@padmapriyavj2604/model-context-protocol",
+  },
 ];
 
 const Pill = ({ children }) => (
@@ -117,7 +168,6 @@ export default function App() {
           </div>
         </nav>
       </header>
-
       {/* Hero Section */}
       <section
         id="home"
@@ -182,7 +232,6 @@ export default function App() {
           </div>
         </div>
       </section>
-
       {/* Remaining Sections (placeholders for now) */}
       <section id="about" className="bg-white py-20 px-4 md:px-8">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
@@ -248,7 +297,6 @@ export default function App() {
           </aside>
         </div>
       </section>
-
       <section id="skills" className="bg-rose-50 py-20 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-semibold mb-8">Skills</h2>
@@ -273,27 +321,123 @@ export default function App() {
         </div>
       </section>
 
-      <section
-        id="projects"
-        className="h-[80vh] bg-white flex items-center justify-center"
-      >
-        <h1 className="text-3xl">Projects Section</h1>
-      </section>
-      <section
-        id="blog"
-        className="h-[80vh] bg-blue-50 flex items-center justify-center"
-      >
-        <h1 className="text-3xl">Blog Section</h1>
-      </section>
-      <section
-        id="contact"
-        className="h-[80vh] bg-white flex items-center justify-center"
-      >
-        <h1 className="text-3xl">Contact Section</h1>
+      <section id="projects" className="bg-white py-20 px-4 md:px-8">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-8">Projects</h2>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {PROJECTS.map((p, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="rounded-2xl overflow-hidden border border-black/10 bg-white shadow-sm hover:shadow-md transition-shadow"
+              >
+                <img
+                  src={p.img}
+                  alt={`${p.title} screenshot`}
+                  loading="lazy"
+                  className="w-full h-56 object-cover"
+                />
+                <div className="p-5">
+                  <h3 className="text-xl font-semibold">{p.title}</h3>
+                  <p className="mt-2 text-slate-700">{p.blurb}</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {p.stack.map((tech) => (
+                      <Pill key={tech}>{tech}</Pill>
+                    ))}
+                  </div>
+                  <div className="mt-4">
+                    <a
+                      href={p.code}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-block text-sm font-medium text-amber-600 hover:underline"
+                    >
+                      View Code →
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
 
+      <section id="blog" className="bg-blue-50 py-20 px-4 md:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-3xl md:text-4xl font-semibold">Blog</h2>
+            <a
+              href="https://medium.com/@padmapriyavj2604"
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm underline underline-offset-4 flex items-center gap-1"
+            >
+              View All <ArrowUpRight size={16} />
+            </a>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {BLOGS.map((blog, index) => (
+              <motion.a
+                href={blog.url}
+                key={blog.title}
+                target="_blank"
+                rel="noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="rounded-2xl border border-black/10 bg-white p-5 shadow-sm hover:shadow-md transition hover:scale-[1.02]"
+              >
+                <div className="text-lg font-semibold">{blog.title}</div>
+                <div className="text-sm opacity-70 mt-1">{blog.date}</div>
+                <p className="mt-3 text-sm opacity-80 flex items-center gap-1">
+                  Read post <ArrowUpRight size={14} />
+                </p>
+              </motion.a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+  id="contact"
+  className="bg-white py-20 px-4 md:px-8"
+>
+  <div className="max-w-2xl mx-auto text-center">
+    <h2 className="text-3xl md:text-4xl font-semibold mb-6">Get in Touch</h2>
+    <p className="text-lg text-slate-700 mb-6">
+      Whether you want to collaborate, have a question, or just want to say hi — my inbox is always open.
+    </p>
+
+    <div className="flex justify-center gap-4 flex-wrap">
+      <a
+        href={`mailto:${INFO.email}`}
+        className="inline-flex items-center gap-2 rounded-full bg-amber-600 text-white px-6 py-2 shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 ease-out"
+      >
+        <Mail size={18} />
+        <span className="font-semibold">Say Hello</span>
+      </a>
+
+      <a
+        href={INFO.links.resume}
+        className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white text-black px-6 py-2 shadow hover:shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 ease-out"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <FileText size={18} />
+        <span className="font-semibold">View Resume</span>
+      </a>
+    </div>
+  </div>
+</section>
+
       <footer className="py-10 text-center text-sm opacity-70">
-        © {new Date().getFullYear()} {INFO.name}. Built with React & Tailwind.
+        © {new Date().getFullYear()} {INFO.name}
       </footer>
     </div>
   );
