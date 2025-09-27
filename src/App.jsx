@@ -191,12 +191,12 @@ const BLOGS = [
   {
     title: "Bringing MCP to Life: A Practical RSS Digest Bot in Python",
     date: "Jun 22, 2025",
-    url: "https://medium.com/@padmapriyavj2604/rss-digest-bot",
+    url: "https://medium.com/ai-in-plain-english/bringing-mcp-to-life-a-practical-rss-digest-bot-in-python-e5498b6271bf",
   },
   {
     title: "Why Model Context Protocol Is the REST for LLMs",
     date: "Jun 4, 2025",
-    url: "https://medium.com/@padmapriyavj2604/model-context-protocol",
+    url: "https://medium.com/ai-in-plain-english/why-model-context-protocol-is-the-rest-for-llms-38de3c720fdf",
   },
 ];
 
